@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
 class CameraView extends StatefulWidget {
   final double Size_Height;
@@ -11,7 +12,33 @@ class CameraView extends StatefulWidget {
 }
 
 class _CameraViewState extends State<CameraView> {
-  double get sizeHeight => widget.Size_Height;
+  late VlcPlayerController _vlcController;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializePlayer();
+  }
+
+  @override
+  void dispose() {
+    _vlcController.dispose();
+    super.dispose();
+  }
+
+  void _initializePlayer() {
+    _vlcController = VlcPlayerController.network(
+      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', // Test Web Video 링크
+      // 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', // Test Web Video 링크
+      hwAcc: HwAcc.full,
+      autoPlay: true,
+      options: VlcPlayerOptions(
+        advanced: VlcAdvancedOptions([
+          VlcAdvancedOptions.networkCaching(1000), // 네트워크 캐싱 설정 (ms)
+        ]),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +59,19 @@ class _CameraViewState extends State<CameraView> {
                 ),
               ],
             ),
-            height: sizeHeight * 0.65,
+            height: widget.Size_Height * 0.65,
             padding: EdgeInsets.all(5),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFD9D9D9),
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: VlcPlayer(
+                    controller: _vlcController,
+                    aspectRatio: 16 / 9, // 비디오의 가로세로 비율
+                    placeholder: Center(child: CircularProgressIndicator()),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
