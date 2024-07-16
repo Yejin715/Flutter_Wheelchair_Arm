@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './global.dart';
 
-Widget buildCircularButton(
+Widget buildTriangleButton(
     BuildContext context,
     double size,
     double height,

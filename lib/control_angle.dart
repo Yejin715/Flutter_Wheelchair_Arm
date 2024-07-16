@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class CameraAngleControls extends StatefulWidget {
   final double Size_Height;
   final double Size_Width;
-  final Function _buildCircularButton;
+  final Function _buildTriangleButton;
 
   CameraAngleControls({
     required this.Size_Height,
     required this.Size_Width,
-    required Function buildCircularButton,
-  }) : _buildCircularButton = buildCircularButton;
+    required Function buildTriangleButton,
+  }) : _buildTriangleButton = buildTriangleButton;
 
   @override
   _CameraAngleControlsState createState() => _CameraAngleControlsState();
@@ -18,7 +18,7 @@ class CameraAngleControls extends StatefulWidget {
 class _CameraAngleControlsState extends State<CameraAngleControls> {
   double get sizeHeight => widget.Size_Height;
   double get sizeWidth => widget.Size_Width;
-  Function get buildCircularButton => widget._buildCircularButton;
+  Function get buildTriangleButton => widget._buildTriangleButton;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class _CameraAngleControlsState extends State<CameraAngleControls> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildCircularButton(
+                  buildTriangleButton(
                     context,
                     sizeHeight,
                     0.15,
@@ -62,7 +62,7 @@ class _CameraAngleControlsState extends State<CameraAngleControls> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildCircularButton(
+                      buildTriangleButton(
                         context,
                         sizeHeight,
                         0.1,
@@ -85,7 +85,7 @@ class _CameraAngleControlsState extends State<CameraAngleControls> {
                         child: Icon(Icons.cached),
                       ),
                       SizedBox(height: sizeHeight * 0.008),
-                      buildCircularButton(
+                      buildTriangleButton(
                         context,
                         sizeHeight,
                         0.1,
@@ -99,7 +99,7 @@ class _CameraAngleControlsState extends State<CameraAngleControls> {
                     ],
                   ),
                   SizedBox(width: sizeHeight * 0.008),
-                  buildCircularButton(
+                  buildTriangleButton(
                     context,
                     sizeHeight,
                     0.15,

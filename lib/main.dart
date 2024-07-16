@@ -11,7 +11,7 @@ import './global.dart';
 import 'menu_button.dart';
 import './control_angle.dart';
 import './control_view_translation.dart';
-import './circle_button.dart';
+import 'triangle_button.dart';
 import './camera_view.dart';
 import './item_detail.dart';
 
@@ -102,13 +102,13 @@ class _MainState extends State<Main> with TickerProviderStateMixin {
                           CameraAngleControls(
                             Size_Height: Size_Height,
                             Size_Width: Size_Width,
-                            buildCircularButton: buildCircularButton,
+                            buildTriangleButton: buildTriangleButton,
                           ),
                           //Camera View Translation
                           CameraViewTranslationControls(
                             Size_Height: Size_Height,
                             Size_Width: Size_Width,
-                            buildCircularButton: buildCircularButton,
+                            buildTriangleButton: buildTriangleButton,
                           ),
                         ],
                       ),

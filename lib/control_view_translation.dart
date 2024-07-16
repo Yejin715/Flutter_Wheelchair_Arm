@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class CameraViewTranslationControls extends StatefulWidget {
   final double Size_Height;
   final double Size_Width;
-  final Function _buildCircularButton;
+  final Function _buildTriangleButton;
 
   CameraViewTranslationControls({
     required this.Size_Height,
     required this.Size_Width,
-    required Function buildCircularButton,
-  }) : _buildCircularButton = buildCircularButton;
+    required Function buildTriangleButton,
+  }) : _buildTriangleButton = buildTriangleButton;
 
   @override
   _CameraViewTranslationControlsState createState() =>
@@ -20,7 +20,7 @@ class _CameraViewTranslationControlsState
     extends State<CameraViewTranslationControls> {
   double get sizeHeight => widget.Size_Height;
   double get sizeWidth => widget.Size_Width;
-  Function get buildCircularButton => widget._buildCircularButton;
+  Function get buildTriangleButton => widget._buildTriangleButton;
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +49,13 @@ class _CameraViewTranslationControlsState
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildCircularButton(context, sizeHeight, 0.15, 0.1, true,
+                  buildTriangleButton(context, sizeHeight, 0.15, 0.1, true,
                       false, true, false, 4),
                   SizedBox(width: sizeHeight * 0.008),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buildCircularButton(context, sizeHeight, 0.1, 0.15, true,
+                      buildTriangleButton(context, sizeHeight, 0.1, 0.15, true,
                           true, false, false, 5),
                       SizedBox(height: sizeHeight * 0.008),
                       Container(
@@ -69,12 +69,12 @@ class _CameraViewTranslationControlsState
                         child: Icon(Icons.control_camera),
                       ),
                       SizedBox(height: sizeHeight * 0.008),
-                      buildCircularButton(context, sizeHeight, 0.1, 0.15, false,
+                      buildTriangleButton(context, sizeHeight, 0.1, 0.15, false,
                           false, true, true, 7),
                     ],
                   ),
                   SizedBox(width: sizeHeight * 0.008),
-                  buildCircularButton(context, sizeHeight, 0.15, 0.1, false,
+                  buildTriangleButton(context, sizeHeight, 0.15, 0.1, false,
                       true, false, true, 6),
                 ],
               ),
