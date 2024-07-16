@@ -82,7 +82,14 @@ class _CameraAngleControlsState extends State<CameraAngleControls> {
                           borderRadius:
                               BorderRadius.circular(sizeHeight * 0.08),
                         ),
-                        child: Icon(Icons.cached),
+                        child: Center(
+                          child: GestureDetector(
+                            child: Icon(
+                              Icons.cached,
+                              size: sizeHeight * 0.05,
+                            ),
+                          ),
+                        ),
                       ),
                       SizedBox(height: sizeHeight * 0.008),
                       buildTriangleButton(

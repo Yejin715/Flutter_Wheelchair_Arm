@@ -77,10 +77,10 @@ Widget buildTriangleButton(
         ),
       ),
       child: Container(
-        height: size * (height - 0.02),
-        width: size * (width - 0.02),
+        height: size * (height - 0.03),
+        width: size * (width - 0.03),
         decoration: BoxDecoration(
-          color: Color.fromARGB(220, 85, 79, 111),
+          color: Color(0xFF646667),
           borderRadius: BorderRadius.only(
             topLeft: istopLeft ? Radius.circular(size) : Radius.zero,
             bottomLeft: isbottomLeft ? Radius.circular(size) : Radius.zero,
@@ -89,7 +89,7 @@ Widget buildTriangleButton(
           ),
           boxShadow: [
             BoxShadow(
-              color: Color(0x40000000),
+              color: Color(0xFF2A2A2A),
               spreadRadius: 1,
               blurRadius: 1,
               offset: Offset(0, 0),

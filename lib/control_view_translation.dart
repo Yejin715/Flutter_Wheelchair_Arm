@@ -66,7 +66,14 @@ class _CameraViewTranslationControlsState
                           borderRadius:
                               BorderRadius.circular(sizeHeight * 0.08),
                         ),
-                        child: Icon(Icons.control_camera),
+                        child: Center(
+                          child: GestureDetector(
+                            child: Icon(
+                              Icons.control_camera,
+                              size: sizeHeight * 0.05,
+                            ),
+                          ),
+                        ),
                       ),
                       SizedBox(height: sizeHeight * 0.008),
                       buildTriangleButton(context, sizeHeight, 0.1, 0.15, false,
